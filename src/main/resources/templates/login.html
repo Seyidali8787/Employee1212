@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+  <title>Login Authentication</title>
+  <style>
+        body{
+            opacity: 1;
+            background-image: url(./FB_IMG_1696160644635.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100%;
+            height: 100%;
+            width: 100%;
+        }
+         @media (max-width:800px)
+        {
+           body{
+            background-image: none;
+    }
+}
+
+h1 img{
+     width: 100px;
+     height: 100px;
+}
+.fa{
+    border:solid 2px gray;
+    border-radius: 20px;
+    padding: 10px;
+}
+body{
+  height: 100%;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif,sans-serif;
+      background-color: gray;
+
+}
+
+.int{
+  border: solid red 10px;
+}
+
+h1{
+color: #000;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 20px;
+  width: fit-content;
+  border-radius: 20px 20px 0 0;
+}
+
+.login{
+  transition: all 1s ease-in-out;
+  width: 34%;
+  padding: 40px;
+  margin: 0 auto;
+  box-shadow: 0px 10px  10px 10px #2c2727;
+  text-align: left;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+.login h1{
+  width: fit-content;
+  text-align: center;
+  margin: 10px auto;
+  border-radius: 50px;
+  color: #000;
+}
+#input1, #input2{
+  font-size: 15px;
+  width: 100%;
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #d8d8d8;
+  border-radius: 3px;
+}
+
+label{
+  margin: 5px;
+  width: 100%;
+}
+
+button{
+  background-color: #0150c0;
+  width: 100%;
+  padding: 10px;
+  margin: 5px;
+  border-radius:  0  0 5px 5px ;
+  color: aliceblue;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+&:hover{
+  background-color: #0a5fd6;
+}
+}
+
+
+
+    </style>
+</head>
+<body>
+<div class="tcl">
+  <h1 class="c2"></h1>
+</div>
+
+<h1 class="h1">Login now</h1>
+<div class="login show">
+  <form th:action="@{/login}" method="post">
+    <h1> <i class="fa fa-user fa-3x " ></i> </h1>
+    <label>username</label>
+    <input  type="text" id="input1" placeholder="Enter username" name="id"/>
+    <label>password</label>
+    <input type="password" id="input2" placeholder="Enter password" name="password"/>
+
+    <button type="submit">Login</button>
+    <div th:if="${loginError}">
+      <p style="color: red;">Invalid ID or password , please try Again </p>
+    </div>
+  </form>
+</div>
+</body>
+</html>
